@@ -60,6 +60,7 @@ validateConfigNodes <- function(config){
   nodoInput <- identical(names(config$datos), c("train", "target", "sep"))
   nodoColumnas <- identical(names(config$columnas), c("ID", "predictorasNumericas",
                                                       "target"))
+  nodoFilas <- identical(names(config$filas), c("paises"))
   
   
   nodos <- c("nodoPrincipal" = nodoPrincipal, "nodoInput" = nodoInput, 
