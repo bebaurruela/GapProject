@@ -56,7 +56,7 @@ leerConfig <- function(path){
 #' 
 validateConfigNodes <- function(config){
   
-  nodoPrincipal <- identical(names(config), c("datos", "output", "testRate"))
+  nodoPrincipal <- identical(names(config), c("datos", "columnas", "filas"))
   nodoInput <- identical(names(config$datos), c("train", "target", "sep"))
   nodoColumnas <- identical(names(config$columnas), c("ID", "predictorasNumericas",
                                                       "target"))
@@ -64,7 +64,7 @@ validateConfigNodes <- function(config){
   
   
   nodos <- c("nodoPrincipal" = nodoPrincipal, "nodoInput" = nodoInput, 
-             "nodoColumnas" = nodoColumnas)
+             "nodoColumnas" = nodoColumnas, "nodoFilas" = nodoFilas)
   
   check <- all(nodos)
   
@@ -79,4 +79,5 @@ validateConfigNodes <- function(config){
   }
   
 }
+
 

@@ -15,7 +15,7 @@ imputadorNansApp <- function(path){
     library(logging)
     
     #Generar el manejado de log
-    addHandler(writeToFile, logger = 'log', file = paste0(path, "/log/logfile.log"))
+    addHandler(writeToFile, logger = 'log', file = paste0(path, "log/logfile.log"))
     loginfo("Empezamos la app...", logger = 'log')
     
     loginfo("Leyendo el config...", logger = 'log')
