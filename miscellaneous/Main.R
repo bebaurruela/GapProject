@@ -1,4 +1,4 @@
-directorio <- "~/ProyectosR/GapProject/"
+directorio <- "~/Documents/GitHub/GapProject/"
 
 setwd(directorio)
 
