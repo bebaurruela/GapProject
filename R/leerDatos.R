@@ -10,12 +10,12 @@
 #'
 leerDatos <- function(config, path){
   
-  pathDatos <- paste0(path, "data/", config$input$name)
+  pathDatos <- paste0(path, "data/", config$datos$train)
   
   
   tryCatch(expr = {
     
-    datos <- data.table::fread(pathDatos, sep = config$input$sep,
+    datos <- data.table::fread(pathDatos, sep = config$datos$sep,
                                encoding = 'UTF-8', data.table = FALSE)
     
     
