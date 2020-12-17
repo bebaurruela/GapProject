@@ -20,7 +20,7 @@ generarModelo <- function(datos, config){
   train <- contactosEntrenados[trainPos, features]
   test <- contactosEntrenados[-trainPos, features]
   
-  set.seed(123)
+  set.seed(42)
   model <- lm(features, data=train)
   predictions <- predict(model, test)
   
