@@ -9,7 +9,7 @@
 #' @examples
 generarModelo <- function(datos, config){
   
-  datos <- seleccionColumnas(datos, config)
+  datos <- seleccionColumnas(datos, config) #TODO
   
   #Numero de contactos para entrenar
   numTrain <- round(nrow(datos) * 0.7)
