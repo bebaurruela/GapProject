@@ -11,11 +11,11 @@ generarOutput <- function(output, config, path){
 
   marcaTmp <- Sys.time()
   
-  nombreArchivo <- paste0(path, "output/deberesAlemania.csv")
+  nombreArchivo <- paste0(path, "output/Predicciones.csv")
   
   tryCatch(expr = {
     
-    write.csv(output$prediccion, file = nombreArchivo, sep = config$input$sep,
+    write.csv(output$prediccion, file = nombreArchivo, sep = config$datos$sep,
               row.names = FALSE)
     
   }, error = function(e){
