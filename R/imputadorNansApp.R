@@ -1,14 +1,14 @@
 
-#' @title clasificarContactosApp
-#' @description Funcion principal del paquete de clasificarContactos
+#' @title imputadorNansApp
+#' @description Funcion principal del paquete de GapProject
 #' 
 #' @param path, string 
 #' 
 #' @export
 #' @import logging
 #'
-#' @author Ander
-clasificarContactosApp <- function(path){
+#' @author Diego, Manu, Beba
+imputadorNansApp <- function(path){
   
   tryCatch(expr = {
     
