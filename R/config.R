@@ -35,11 +35,11 @@ leerConfig <- function(path){
   
   config$columnas$predictorasNumericas <- trimws(strsplit(config$columnas$predictorasNumericas, ",")[[1]])
   config$columnas$fechas$tiempos <- as.numeric(trimws(strsplit(config$columnas$fechas$tiempos, ",")[[1]]))
-
+  
   config$columnas$mails$ratios <-  as.logical(config$columnas$mails$ratios)
   
   
-  separadoresAceptados <- config$input$sep %in% c(",", ";")
+  separadoresAceptados <- config$datos$sep %in% c(",", ";")
   
   if(!separadoresAceptados){
     
@@ -60,23 +60,14 @@ leerConfig <- function(path){
 #' 
 validateConfigNodes <- function(config){
   
-  nodoPrincipal <- identical(names(config), c("input", "columnas"))
-  nodoInput <- identical(names(config$input), c("name", "sep"))
+  nodoPrincipal <- identical(names(config), c("datos", "output", "testRate"))
+  nodoInput <- identical(names(config$datos), c("train", "target", "sep"))
   nodoColumnas <- identical(names(config$columnas), c("ID", "predictorasNumericas",
-                                                     "fuenteOriginal", "dominio_mail",
-                                                     "fechas", "mails", "target", "llamada"))
+                                                      "fuenteOriginal", "target"))
   
-  nodoFechas <- identical(names(config$columnas$fechas), c("creacion", "ultima_mod",
-                                                           "apertura_ultimo", "envio_ultimo",
-                                                           "apertura_primero", "envio_primero",
-                                                           "visita_primero", "visita_ultimo",
-                                                           "tiempos"))
-  
-  nodoMails <- identical(names(config$columnas$mails), c("mailsDl", "mailsCl", "mailsOp", "ratios"))
   
   nodos <- c("nodoPrincipal" = nodoPrincipal, "nodoInput" = nodoInput, 
-             "nodoColumnas" = nodoColumnas, "nodoFechas" = nodoFechas,
-             "nodoMails" = nodoMails)
+             "nodoColumnas" = nodoColumnas)
   
   check <- all(nodos)
   
@@ -91,3 +82,4 @@ validateConfigNodes <- function(config){
   }
   
 }
+
