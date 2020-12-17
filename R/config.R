@@ -34,10 +34,6 @@ leerConfig <- function(path){
   validateConfigNodes(config)
   
   config$columnas$predictorasNumericas <- trimws(strsplit(config$columnas$predictorasNumericas, ",")[[1]])
-  config$columnas$fechas$tiempos <- as.numeric(trimws(strsplit(config$columnas$fechas$tiempos, ",")[[1]]))
-  
-  config$columnas$mails$ratios <-  as.logical(config$columnas$mails$ratios)
-  
   
   separadoresAceptados <- config$datos$sep %in% c(",", ";")
   
