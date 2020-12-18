@@ -10,13 +10,20 @@
 #'
 leerDatos <- function(config, path){
   
-  pathDatos <- paste0(path, "data/", config$datos$train)
+  pathCsv1 <- paste0(path, "miscellaneous/csv/", config$datos$train$t1)
+  pathCsv2 <- paste0(path, "miscellaneous/csv/", config$datos$train$t2)
+  pathCsv3 <- paste0(path, "miscellaneous/csv/", config$datos$train$t3)
+  
   
   
   tryCatch(expr = {
     
-    datos <- data.table::fread(pathDatos, sep = config$datos$sep,
+    datos_csv1 <- data.table::fread(pathCsv1, sep = config$datos$sep,
                                encoding = 'UTF-8', data.table = FALSE)
+    datos_csv2 <- data.table::fread(pathCsv2, sep = config$datos$sep,
+                                    encoding = 'UTF-8', data.table = FALSE)
+    datos_csv3 <- data.table::fread(pathCsv3, sep = config$datos$sep,
+                                    encoding = 'UTF-8', data.table = FALSE)
     
     
   }, error = function(e){
@@ -26,15 +33,33 @@ leerDatos <- function(config, path){
     stop()
   })
   
-  if(nrow(datos) == 0 | ncol(datos) == 0){
+  if(nrow(datos_csv1) == 0 | ncol(datos_csv1) == 0){
     
-    logerror("Datos mal leido, verifica que tengan un buen formato. ",
+    logerror("Datos 1 mal leido, verifica que tengan un buen formato. ",
              logger = 'log')
     stop()
     
   }
   
-  return(datos)
+  
+  if(nrow(datos_csv2) == 0 | ncol(datos_csv2) == 0){
+    
+    logerror("Datos 1 mal leido, verifica que tengan un buen formato. ",
+             logger = 'log')
+    stop()
+    
+  }
+  
+  
+  if(nrow(datos_csv3) == 0 | ncol(datos_csv3) == 0){
+    
+    logerror("Datos 1 mal leido, verifica que tengan un buen formato. ",
+             logger = 'log')
+    stop()
+    
+  }
+  df = list(csv1=datos_csv1, csv2=datos_csv2, csv3=datos_csv3)
+  return(df)
   
 }
 

@@ -58,12 +58,13 @@ validateConfigNodes <- function(config){
   
   nodoPrincipal <- identical(names(config), c("datos", "columnas", "filas"))
   nodoInput <- identical(names(config$datos), c("train", "target", "sep"))
+  nodoCsvs <- identical(names(config$datos$train), c("t1", "t2", "t3"))
   nodoColumnas <- identical(names(config$columnas), c("ID", "predictorasNumericas",
                                                       "target"))
   nodoFilas <- identical(names(config$filas), c("paises"))
   
   
-  nodos <- c("nodoPrincipal" = nodoPrincipal, "nodoInput" = nodoInput, 
+  nodos <- c("nodoPrincipal" = nodoPrincipal, "nodoInput" = nodoInput, "nodoCsvs" = nodoCsvs, 
              "nodoColumnas" = nodoColumnas, "nodoFilas" = nodoFilas)
   
   check <- all(nodos)

@@ -30,6 +30,7 @@ imputadorNansApp <- function(path){
     
     loginfo("Procesando los datos...", logger = 'log')
     splitDatos <- preProcesarDatos(datos, config)
+    browser()
     loginfo("Datos procesados.", logger = 'log')
     
     
@@ -56,3 +57,4 @@ imputadorNansApp <- function(path){
   
   
 }
+
