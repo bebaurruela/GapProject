@@ -7,18 +7,20 @@
 #' @import logging
 #'
 #' @examples
+
+datos <- readRDS('df_ready.rds')
 generarModelo <- function(datos, config){
   
-  datos <- seleccionColumnas(datos, config) #TODO
+  #datos <- seleccionColumnas(datos, config) #TODO
   
   #Numero de contactos para entrenar
   numTrain <- round(nrow(datos) * 0.7)
   
   trainPos <- sample(1:nrow(datos), size = numTrain)
-  
-  features <- names(datos$features)
-  train <- contactosEntrenados[trainPos, features]
-  test <- contactosEntrenados[-trainPos, features]
+  features <- names(datos)
+  features <- features[2:length(features)]
+  train <- datos[trainPos, features]
+  test <- datos[-trainPos, features]
   
   set.seed(42)
   model <- lm(features, data=train)
