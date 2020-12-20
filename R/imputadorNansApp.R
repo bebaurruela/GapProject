@@ -29,13 +29,13 @@ imputadorNansApp <- function(path){
     
     
     loginfo("Procesando los datos...", logger = 'log')
-    splitDatos <- preProcesarDatos(datos, config)
+    df_datos <- preProcesarDatos(datos, config)
     browser()
     loginfo("Datos procesados.", logger = 'log')
     
     
     loginfo("Generando modelo...", logger = 'log')
-    output <- generarModelo(splitDatos, config)
+    output <- generarModelo(df_datos, config)
     loginfo("Modelo Generado.", logger = 'log')
     
     
