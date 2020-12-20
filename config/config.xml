@@ -4,7 +4,7 @@
     <train>
       <t1>children_per_woman_total_fertility.csv</t1>
       <t2>female_long_term_unemployment_rate_percent.csv</t2>
-      <t3>population_total.csv</t3> 
+      <t3>population_total.csv</t3>
     </train>
     <target>murdered_women_per_100000_people.csv</target>
     <sep>,</sep>

@@ -30,7 +30,6 @@ imputadorNansApp <- function(path){
     
     loginfo("Procesando los datos...", logger = 'log')
     df_datos <- preProcesarDatos(datos, config)
-    browser()
     loginfo("Datos procesados.", logger = 'log')
     
     

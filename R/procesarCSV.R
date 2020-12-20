@@ -30,11 +30,11 @@ preProcesarCSV <- function(datos, column_format=FALSE){
   # Rename columns
   colnames(df) <- c("pais", valid_cols)
   
-  df <- gather(df, key= "Country-year", value = "Value", c("1990":"2004"))
+  df <- gather(df, key= "CountryYear", value = "Value", c("1990":"2004"))
   
   df <- df[order(df$pais),]
   
-  df <- df %>% unite(`Country-year`, pais:`Country-year`, sep = "_")
+  df <- df %>% unite(`CountryYear`, pais:`CountryYear`, sep = "_")
   
   if(column_format==FALSE)
     return(df)
