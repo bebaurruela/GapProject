@@ -15,10 +15,10 @@
 preProcesarDatos <- function(datos, config){
   library(tidyverse)
 
-  df_col1 <- preProcesarCSV(datos$csv1)
-  col2 <- preProcesarCSV(datos$csv2, column_format=TRUE)
-  col3 <- preProcesarCSV(datos$csv3, column_format=TRUE)
-  col_target <- preProcesarCSV(datos$target, column_format=TRUE)
+  df_col1 <- preProcesarCSV(datos$csv1, config)
+  col2 <- preProcesarCSV(datos$csv2, config, column_format=TRUE)
+  col3 <- preProcesarCSV(datos$csv3, config, column_format=TRUE)
+  col_target <- preProcesarCSV(datos$target, config, column_format=TRUE)
   
   
   # Cols dont have a significative name

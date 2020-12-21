@@ -1,8 +1,10 @@
-preProcesarCSV <- function(datos, column_format=FALSE){
+preProcesarCSV <- function(datos, config, column_format=FALSE){
   
   countries_to_keep <- c("Australia", "Canada", "Estonia", "France",
-                         "Japan","New Zealand", "Norway", "South Korea", 
+                         "Japan","New Zealand", "Norway", "South Korea",
                          "Sweden", "Turkey", "United States")
+  
+  #countries_to_keep <- config$filas$paises
   
   # df with country as index
   df <- data.frame(datos, header=TRUE, row.names="V1")
@@ -15,8 +17,10 @@ preProcesarCSV <- function(datos, column_format=FALSE){
   
   # Keep the columns with the years we want
   valid_cols = c("1990", "1991", "1992", "1993", "1994", "1995", "1996",
-                 "1997", "1998", "1999", "2000", "2001", "2002", 
+                 "1997", "1998", "1999", "2000", "2001", "2002",
                  "2003", "2004")
+  
+  #valid_cols = config$columnas$predictorasNumericas
   
   valid_cols_mask <- colnames(df) %in% valid_cols
   
