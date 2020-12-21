@@ -38,7 +38,7 @@ imputadorNansApp <- function(path){
     loginfo("Modelo Generado.", logger = 'log')
     
     
-    loginfo("Generando output...", logger = 'log')
+    loginfo("Generando output..ne.", logger = 'log')
     generarOutput(output, config, path)
     loginfo("Output generado.", logger = 'log')
     

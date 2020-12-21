@@ -28,9 +28,10 @@ generarModelo <- function(datos, config){
   #summary(model)
   predictions <- predict(model, test)
   
-  #library(Metrics)
+  library(Metrics)
   score <- rmse(predictions, test$target)
   
-  return(list(prediccion = predictions, modelo = model, score=score))
+  v <- list(prediccion = predictions, modelo = model, score=score)
+  return(v)
   
 }
